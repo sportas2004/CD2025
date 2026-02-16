@@ -4,4 +4,4 @@ O código parte dunha plantilla xeral chamada `Persona`, que é unha clase abstr
 
 O resto das clases modélanse de maneira habitual. Para construír o diagrama Mermaid/UML revisáronse os atributos de cada clase e marcouse a súa visibilidade con `+` (público) ou `-` (privado). O mesmo proceso aplicouse aos métodos, colocándoos na súa clase correspondente.
 
-Finalmente, para establecer as relacións e as cardinalidades, analizáronse os atributos que fan referencia a outras clases (por exemplo, se son obxectos únicos ou arrays). En función diso, determinouse se a relación debía representarse como `1`, `0..1` ou `0..*`.
+Finalmente, para establecer as relacións e as cardinalidades, analizáronse os atributos que fan referencia a outras clases (por exemplo, se son obxectos únicos ou arrays). En función diso, determinouse se a relación debía representarse como `1`, `0..[0-100]` ou `0..*`.
