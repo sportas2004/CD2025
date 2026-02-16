@@ -19,19 +19,47 @@ public class Articulo {
         this.numPaxinas = numPaxinas;
     }
 
-    public String getId() { return id; }
-    public String getTitulo() { return titulo; }
-    public TipoArticulo getTipo() { return tipo; }
-    public String getTema() { return tema; }
-    public int getNumPaxinas() { return numPaxinas; }
-    public List<Autor> getAutores() { return autores; }
+    public String getId() {
+        return id;
+    }
 
-    public void setTitulo(String titulo) { this.titulo = titulo; }
-    public void setTipo(TipoArticulo tipo) { this.tipo = tipo; }
-    public void setTema(String tema) { this.tema = tema; }
-    public void setNumPaxinas(int numPaxinas) { this.numPaxinas = numPaxinas; }
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public TipoArticulo getTipo() {
+        return tipo;
+    }
+
+    public String getTema() {
+        return tema;
+    }
+
+    public int getNumPaxinas() {
+        return numPaxinas;
+    }
+
+    public List<Autor> getAutores() {
+        return autores;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setTipo(TipoArticulo tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setTema(String tema) {
+        this.tema = tema;
+    }
+
+    public void setNumPaxinas(int numPaxinas) {
+        this.numPaxinas = numPaxinas;
+    }
 
     public void addAutor(Autor autor) {
-            autores.add(autor);
+        autores.add(autor);
     }
 }

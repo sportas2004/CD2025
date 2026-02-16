@@ -1,6 +1,6 @@
 # Breve descripción del proceso realizado
 
-Decidín converter cada un deses conceptos nunha clase porque todos teñen identidade propia e atributos asociados. A partir de aí analicei como se relacionaban entre si para definir correctamente as asociacións e as cardinalidades.
+Decidín convertir cada un deses conceptos nunha clase porque todos teñen identidade propia e atributos asociados. A partir de aí analicei como se relacionaban entre si para definir correctamente as asociacións e as cardinalidades.
 
 Cando vin que unha conferencia pode ter varias sesións e que unha sesión non ten sentido sen unha conferencia, coloquei unha lista de sesións en `Conferencia`, o que fai que as sesións estean limitadas a unha conferencia, xa que a sesión depende estruturalmente da conferencia. Despois centreime no proceso de inscrición. Como o enunciado indica que todos os participantes deben inscribirse na conferencia, creei unha clase chamada `Inscripcion` que conecta un participante cunha conferencia e que ademais almacena o estado da inscrición, permitindo confirmala ou cancelala.
 
