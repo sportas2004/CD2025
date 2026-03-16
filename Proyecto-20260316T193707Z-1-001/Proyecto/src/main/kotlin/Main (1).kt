@@ -9,8 +9,6 @@ fun main() {
     // to see how IntelliJ IDEA suggests fixing it.
     println("Hello, " + name + "!")
 
-    // Llamada a método Java
-    HelloJava.sayHello()
 
     for (i in 1..5) {
         //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
