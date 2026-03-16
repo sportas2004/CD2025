@@ -49,7 +49,6 @@ public class AlumnoManager {
 
     public void addAlumno(String name, int edad, double notaMedia) {
         if (edad > 18) {System.out.println("Mayor");} else {System.out.println("Menor");}
-        int numeroPorDefecto = 3;
         for (int i = 0; i < 10; i++) {System.out.println(i + ":" + name + "-" + notaMedia);}
     }
 
