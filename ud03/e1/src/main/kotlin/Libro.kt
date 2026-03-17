@@ -63,7 +63,7 @@ class Libro(var nombre: String, var tipo: Int, var editorial: String, var año: 
 
 
             fun multa(): Prestamo {
-                if (this.fechaInicio.plusDays(15) <= devuelveFechaReal) {
+                if (devuelveFechaReal != null && this.fechaInicio.plusDays(15) <= devuelveFechaReal!!) {
                     this.MultaFechaTardia = true
                     println("Fecha revasada")
                     println("...MULTA...")
