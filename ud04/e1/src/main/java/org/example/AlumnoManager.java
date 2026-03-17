@@ -1,64 +1,73 @@
 package org.example;
 
 /**
- * Clase en el cual se introduce el nombre de un Alumno Manager y se pueden añadir diferentes alumnos y comprobar si es mayor de 18
+ * Gestiona el nombre del alumno actual y permite mostrar informacion basica
+ * sobre un alumno.
+ *
  * @author SergioP
  */
 public class AlumnoManager {
 
+    private static final int MAYORIA_EDAD = 18;
+    private static final int REPETICIONES_IMPRESION = 10;
+
     private static String nombre = "";
+    public static int contador = 0;
 
     /**
-     * Get el cual se puede conseguir lo que contiene la variable nombre
-     * @return nombre
+     * Devuelve el nombre almacenado.
+     *
+     * @return nombre actual
      */
     public static String getNombre() {
         return nombre;
     }
 
     /**
-     * Set el cual se puede modificar la variable nombre, pudiendo variar su valor
-     * @param nombre
+     * Actualiza el nombre almacenado.
+     *
+     * @param nombre nuevo nombre
      */
-
     public static void setNombre(String nombre) {
         AlumnoManager.nombre = nombre;
     }
 
-    public static int contador = 0;
-
     /**
-     * Metodo el cual recibe un parametro String de un usuario y modifica el valor del nombre, ademas de aumentar el valor de contador
-     * @param cadena1
+     * Guarda el nombre recibido y aumenta el contador de altas.
+     *
+     * @param cadena1 nombre del alumno
      */
-
     public static void alumnoManager(String cadena1) {
         setNombre(cadena1);
         contador++;
     }
 
     /**
-     * Metodo el cual añade alumnos al alumno manager, donde imprime por pantalla los resultados de los alumnos. Aparte de deteminar si es mayor o menor de edad
-     * String la cual es el nombre del alumno
-     * @param name
-     * Int el cual hace referencia a la edad del alumno
-     * @param edad
-     * Double el cual hace referencia a la nota media obtenida del alumno
-     * @param notaMedia
+     * Muestra si el alumno es mayor de edad y lista su nombre con la nota media.
+     *
+     * @param name nombre del alumno
+     * @param edad edad del alumno
+     * @param notaMedia nota media del alumno
      */
-
     public void addAlumno(String name, int edad, double notaMedia) {
-        if (edad > 18) {System.out.println("Mayor");} else {System.out.println("Menor");}
-        for (int i = 0; i < 10; i++) {System.out.println(i + ":" + name + "-" + notaMedia);}
+        if (edad > MAYORIA_EDAD) {
+            System.out.println("Mayor");
+        } else {
+            System.out.println("Menor");
+        }
+
+        for (int i = 0; i < REPETICIONES_IMPRESION; i++) {
+            System.out.println(i + ":" + name + "-" + notaMedia);
+        }
     }
 
     /**
-     * Metodo de impresion del objeto AlumnoManager
-     * @return "AlumnoManager{Nombre=" + nombre + ", contador=" + contador + "}"
+     * Devuelve una representacion textual del gestor.
+     *
+     * @return texto con el nombre y el contador
      */
     @Override
     public String toString() {
-        return "AlumnoManager{Nombre=" + nombre + ", contador=" + contador + "}";
+        return "AlumnoManager{nombre=" + nombre + ", contador=" + contador + "}";
     }
 }
-

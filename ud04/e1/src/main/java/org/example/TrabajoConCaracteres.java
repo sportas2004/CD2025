@@ -1,55 +1,68 @@
 package org.example;
 
 /**
- * Clase en la cual se trabaja tanto con numeros como con caracteres
+ * Contiene operaciones sencillas con cadenas y numeros.
  *
  * @author SergioP
  */
 public class TrabajoConCaracteres {
 
+    private static final int LONGITUD_MAXIMA = 120;
+    private static final int VALOR_POR_DEFECTO = 42;
+
     /**
-     * Metodo el cual concatena cadenas  mira si su longitud es mayor de 120
-     * String introducida por usuario
-     * @param cadena1
-     * String introducida por usuario
-     * @param cadena2
-     * @return concatena=cadena1+cadena2
-     * @throws NullPointerException cuando cadena1 o cadena2 es null
+     * Concatena dos cadenas y avisa si el resultado supera la longitud maxima.
+     *
+     * @param cadena1 primera cadena
+     * @param cadena2 segunda cadena
+     * @return concatenacion de ambas cadenas, o {@code null} si alguna es nula
      */
-
     public static String doStuff(String cadena1, String cadena2) {
+        if (cadena1 == null || cadena2 == null) {
+            return null;
+        }
 
-        if (cadena1 == null || cadena2 == null) return null;
-
-        try {
-            if (cadena1.trim().isEmpty()|| cadena2.trim().isEmpty()) {
-                throw new RuntimeException("bad");
-            }
-        } catch (Exception error) {error.printStackTrace();}
+        if (cadena1.trim().isEmpty() || cadena2.trim().isEmpty()) {
+            throw new IllegalArgumentException("Las cadenas no pueden estar vacias");
+        }
 
         String concatena = cadena1 + cadena2;
-        if (concatena.length() > 120) {System.out.println("too long: " + concatena);}
+        if (concatena.length() > LONGITUD_MAXIMA) {
+            System.out.println("too long: " + concatena);
+        }
+
         return concatena;
     }
 
     /**
-     * Metodo el cual multiplica dos numeros introducidos por el usuario, y le suma un valor por defecto de 42, acabando con una impresion del resultado
-     * Varible Int introducida por el usuario
-     * @param numero1
-     * Variable Int introducida por el usuario
-     * @param numero2
+     * Multiplica dos numeros, suma un valor fijo e imprime el resultado.
+     *
+     * @param numero1 primer numero
+     * @param numero2 segundo numero
      */
-
-    public static void Calc(int numero1, int numero2) {
-        int numeroPorDefecto = 42;
-        int res = numero1 * numero2 + numeroPorDefecto;
-        System.out.println("resultado = " + res);
+    public static void calc(int numero1, int numero2) {
+        int resultado = numero1 * numero2 + VALOR_POR_DEFECTO;
+        System.out.println("resultado = " + resultado);
     }
 
     /**
-     * Metodo que devuelve 1
-     * @return 1
+     * Mantiene compatibilidad con el nombre anterior del metodo.
+     *
+     * @param numero1 primer numero
+     * @param numero2 segundo numero
+     * @deprecated usar {@link #calc(int, int)}
      */
+    @Deprecated
+    public static void Calc(int numero1, int numero2) {
+        calc(numero1, numero2);
+    }
 
-    public Integer unusedMethod() {return  1;}
+    /**
+     * Metodo de ejemplo sin uso actual.
+     *
+     * @return valor fijo
+     */
+    public Integer unusedMethod() {
+        return 1;
+    }
 }
