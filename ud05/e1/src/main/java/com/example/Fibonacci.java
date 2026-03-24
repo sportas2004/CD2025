@@ -2,8 +2,19 @@ package com.example;
 
 import java.math.BigInteger;
 
+/**
+ * @author Sergio Portas Arcos
+ * Clase Fibonacci la cual devuelve el numero fibonacci de un numero
+ */
+
 public class Fibonacci {
 
+    /**
+     *
+     * @param n Numero que se usara para calcular fibonacci
+     * @return BigInteger
+     * @throws Exception  "Error. El número tiene que ser >=0"
+     */
     public BigInteger fibonacci(int n) throws Exception {
         if (n < 0) {
             throw new Exception("Error. El número tiene que ser >=0");
