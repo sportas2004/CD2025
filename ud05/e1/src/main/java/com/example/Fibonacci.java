@@ -3,14 +3,14 @@ package com.example;
 import java.math.BigInteger;
 
 /**
+ * Clase la cual realiza el calculo fibonacci de un numero devolviendo el resultado
  * @author Sergio Portas Arcos
- * Clase Fibonacci la cual devuelve el numero fibonacci de un numero
  */
 
 public class Fibonacci {
 
     /**
-     *
+     * Metodo que realiza el calculo de fibonacci apartir del numero que se envia
      * @param n Numero que se usara para calcular fibonacci
      * @return BigInteger
      * @throws Exception  "Error. El número tiene que ser >=0"

@@ -3,13 +3,14 @@ package com.example;
 import java.math.BigInteger;
 
 /**
+ * Clase la cual devuelve el factorial de un numero
  * @author Sergio Portas Arcos
- * Clase factorial la cual devuelve el factorial de un numero
  */
 
 public class Factorial {
 
     /**
+     * Metodo que realiza el calculo factorial apartir del numero que se envia
      * @param n Numero que se usa para el calculo del factorial
      * @return BigInteger
      * @throws Exception "Error. El número tiene que ser >=0"
