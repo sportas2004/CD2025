@@ -5,7 +5,8 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BookTest {
+
+    class BookTest {
 
     @ParameterizedTest
     @CsvSource({"Sergio , 7899", "Miguel , 7899"})
