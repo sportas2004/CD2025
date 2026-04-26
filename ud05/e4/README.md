@@ -1,22 +1,5 @@
-#### Book
-- préstamo correcto
-- excepción se non está dispoñible
-- devolución
+1. Ejecuta `mvn clean test` para compilar el proyecto y ejecutar todas las pruebas.
+2. Abre `target/site/jacoco/index.html` para ver el informe de cobertura de pruebas.
+3. Abre `target/site/apidocs/index.html` para ver la documentación Javadoc generada.
+4. Revisa `docs/clases.md` para ver el diagrama de clases y la documentación del diseño.
 
-#### User
-- engadir préstamos
-- límite máximo de 3 préstamos
-- eliminar préstamos
-
-#### Loan
-- creación correcta
-- isActive()
-- peche do préstamo
-
-#### LibraryService
-- engadir libros duplicados
-- engadir usuarios duplicados
-- préstamo correcto
-- préstamo con datos inválidos
-- devolución correcta
-- devolver dúas veces (erro)

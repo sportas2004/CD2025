@@ -30,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.*;
               objLibro.borrow();
           });
 
-            assertEquals("Book not available", exception.getMessage());
+            assertEquals("Libro no disponible", exception.getMessage());
     }
 
 

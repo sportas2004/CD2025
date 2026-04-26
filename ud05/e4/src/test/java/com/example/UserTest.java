@@ -35,7 +35,7 @@ public class UserTest {
             objUsuario.addLoan(objLoan);
             objUsuario.addLoan(objLoan);
         });
-        assertEquals("Max loans reached", exception.getMessage());
+        assertEquals("Límite de préstamos alcanzado", exception.getMessage());
     }
 
     @ParameterizedTest
