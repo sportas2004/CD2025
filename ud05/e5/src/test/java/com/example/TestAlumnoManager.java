@@ -11,8 +11,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestAlumnoManager {
-
+ class TestAlumnoManager {
 
  @ParameterizedTest
     @CsvSource({"Sergio , 20, 9.0 ","Jose , 16, 4.0 "})
@@ -26,7 +25,6 @@ public class TestAlumnoManager {
         alumnoManager.agregarAlumno(alumno);
         assertEquals(alumno, alumnoManager.buscarAlumnoPorNombre(nombre));
     }
-
 
     @Test
     void añadirAlumnoV2() {
@@ -156,6 +154,7 @@ public class TestAlumnoManager {
         alumnoManager.mostrarAlumnosSuspensos();
         assertEquals("" ,salida.toString());
     }
+
     @ParameterizedTest
     @CsvSource({"Jose , 16, 4.0 "})
     void mostrarAlumnosAprobadosV2(String nombre, int edad, double notaMedia) {

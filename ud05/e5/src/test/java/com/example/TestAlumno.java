@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestAlumno {
+class TestAlumno {
 
     @Test
     void constructorSinNada() {
