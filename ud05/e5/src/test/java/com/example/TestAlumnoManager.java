@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -119,6 +121,51 @@ public class TestAlumnoManager {
         assertEquals(alumnos,alumnoManager.getAlumnos());
     }
 
+    @ParameterizedTest
+    @CsvSource({"Sergio , 20, 9.0 "})
+    void mostrarAlumnosAprobados(String nombre, int edad, double notaMedia) {
+        Alumno alumno = new Alumno(nombre, edad, notaMedia);
+        AlumnoManager alumnoManager = new AlumnoManager();
+        alumnoManager.agregarAlumno(alumno);
+        ByteArrayOutputStream salida = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(salida));
+        alumnoManager.mostrarAlumnosAprobados();
+        assertEquals("Alumno aprobado: Sergio\n" ,salida.toString());
 
+    }
+
+    @ParameterizedTest
+    @CsvSource({"Jose , 16, 4.0 "})
+    void mostrarAlumnosSuspensos(String nombre, int edad, double notaMedia) {
+        Alumno alumno = new Alumno(nombre, edad, notaMedia);
+        AlumnoManager alumnoManager = new AlumnoManager();
+        alumnoManager.agregarAlumno(alumno);
+        ByteArrayOutputStream salida = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(salida));
+        alumnoManager.mostrarAlumnosSuspensos();
+        assertEquals("Alumno suspenso: Jose\n" ,salida.toString());
+    }
+    @ParameterizedTest
+    @CsvSource({"Jose , 16, 5.0 "})
+    void mostrarAlumnosSuspensosV2(String nombre, int edad, double notaMedia) {
+        Alumno alumno = new Alumno(nombre, edad, notaMedia);
+        AlumnoManager alumnoManager = new AlumnoManager();
+        alumnoManager.agregarAlumno(alumno);
+        ByteArrayOutputStream salida = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(salida));
+        alumnoManager.mostrarAlumnosSuspensos();
+        assertEquals("" ,salida.toString());
+    }
+    @ParameterizedTest
+    @CsvSource({"Jose , 16, 4.0 "})
+    void mostrarAlumnosAprobadosV2(String nombre, int edad, double notaMedia) {
+        Alumno alumno = new Alumno(nombre, edad, notaMedia);
+        AlumnoManager alumnoManager = new AlumnoManager();
+        alumnoManager.agregarAlumno(alumno);
+        ByteArrayOutputStream salida = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(salida));
+        alumnoManager.mostrarAlumnosAprobados();
+        assertEquals("" ,salida.toString());
+    }
 }
 
