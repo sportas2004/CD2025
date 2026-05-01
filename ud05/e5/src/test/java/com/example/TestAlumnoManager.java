@@ -5,13 +5,43 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
+import java.util.logging.Logger;
 
 import static org.junit.jupiter.api.Assertions.*;
 
  class TestAlumnoManager {
+
+    private String capturarLog(Runnable accion) {
+        Logger logger = Logger.getLogger(AlumnoManager.class.getName());
+        StringBuilder salida = new StringBuilder();
+        Handler handler = new Handler() {
+            @Override
+            public void publish(LogRecord record) {
+                salida.append(record.getMessage()).append('\n');
+            }
+
+            @Override
+            public void flush() {
+            }
+
+            @Override
+            public void close() {
+            }
+        };
+        boolean useParentHandlers = logger.getUseParentHandlers();
+        logger.setUseParentHandlers(false);
+        logger.addHandler(handler);
+        try {
+            accion.run();
+        } finally {
+            logger.removeHandler(handler);
+            logger.setUseParentHandlers(useParentHandlers);
+        }
+        return salida.toString();
+    }
 
  @ParameterizedTest
     @CsvSource({"Sergio , 20, 9.0 ","Jose , 16, 4.0 "})
@@ -32,6 +62,13 @@ import static org.junit.jupiter.api.Assertions.*;
         assertNotNull(alumno);
         AlumnoManager alumnoManager = new AlumnoManager();
         assertEquals(null,alumnoManager.buscarAlumnoPorNombre(""));
+    }
+
+    @Test
+    void buscarAlumnoNoEncontrado() {
+        AlumnoManager alumnoManager = new AlumnoManager();
+        alumnoManager.agregarAlumno(new Alumno("Sergio", 20, 9.0));
+        assertNull(alumnoManager.buscarAlumnoPorNombre("NoExiste"));
     }
 
     @Test
@@ -82,7 +119,16 @@ import static org.junit.jupiter.api.Assertions.*;
     }
 
     @ParameterizedTest
-    @CsvSource({"Sergio , 20, 9.0, Sobresaliente adulto","Jose , 16, 4.0, Suspenso menor"})
+    @CsvSource({
+        "Sergio, 20, 9.0, Sobresaliente adulto",
+        "Jose, 16, 9.0, Sobresaliente menor",
+        "Ana, 20, 8.0, Notable adulto",
+        "Luis, 16, 8.0, Notable menor",
+        "Maria, 20, 6.0, Aprobado adulto",
+        "Pedro, 16, 6.0, Aprobado menor",
+        "Juan, 20, 4.0, Suspenso adulto",
+        "Teresa, 16, 4.0, Suspenso menor"
+    })
     void calificarAlumno(String nombre, int edad, double notaMedia, String calificacion) {
         Alumno alumno = new Alumno(nombre, edad, notaMedia);
         AlumnoManager alumnoManager = new AlumnoManager();
@@ -125,10 +171,8 @@ import static org.junit.jupiter.api.Assertions.*;
         Alumno alumno = new Alumno(nombre, edad, notaMedia);
         AlumnoManager alumnoManager = new AlumnoManager();
         alumnoManager.agregarAlumno(alumno);
-        ByteArrayOutputStream salida = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(salida));
-        alumnoManager.mostrarAlumnosAprobados();
-        assertEquals("Alumno aprobado: Sergio\n" ,salida.toString());
+        String salida = capturarLog(alumnoManager::mostrarAlumnosAprobados);
+        assertEquals("Alumno aprobado: Sergio\n" ,salida);
 
     }
 
@@ -138,10 +182,8 @@ import static org.junit.jupiter.api.Assertions.*;
         Alumno alumno = new Alumno(nombre, edad, notaMedia);
         AlumnoManager alumnoManager = new AlumnoManager();
         alumnoManager.agregarAlumno(alumno);
-        ByteArrayOutputStream salida = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(salida));
-        alumnoManager.mostrarAlumnosSuspensos();
-        assertEquals("Alumno suspenso: Jose\n" ,salida.toString());
+        String salida = capturarLog(alumnoManager::mostrarAlumnosSuspensos);
+        assertEquals("Alumno suspenso: Jose\n" ,salida);
     }
     @ParameterizedTest
     @CsvSource({"Jose , 16, 5.0 "})
@@ -149,10 +191,8 @@ import static org.junit.jupiter.api.Assertions.*;
         Alumno alumno = new Alumno(nombre, edad, notaMedia);
         AlumnoManager alumnoManager = new AlumnoManager();
         alumnoManager.agregarAlumno(alumno);
-        ByteArrayOutputStream salida = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(salida));
-        alumnoManager.mostrarAlumnosSuspensos();
-        assertEquals("" ,salida.toString());
+        String salida = capturarLog(alumnoManager::mostrarAlumnosSuspensos);
+        assertEquals("" ,salida);
     }
 
     @ParameterizedTest
@@ -161,10 +201,8 @@ import static org.junit.jupiter.api.Assertions.*;
         Alumno alumno = new Alumno(nombre, edad, notaMedia);
         AlumnoManager alumnoManager = new AlumnoManager();
         alumnoManager.agregarAlumno(alumno);
-        ByteArrayOutputStream salida = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(salida));
-        alumnoManager.mostrarAlumnosAprobados();
-        assertEquals("" ,salida.toString());
+        String salida = capturarLog(alumnoManager::mostrarAlumnosAprobados);
+        assertEquals("" ,salida);
     }
 }
 
