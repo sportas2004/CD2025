@@ -4,7 +4,7 @@ import java.util.*;
 
 public class CarrinhoCompra {
 
-    private ArrayList<Produto> elementosCarrito = new ArrayList<Produto>();
+    private ArrayList<Produto> elementosCarrito = new ArrayList<>();
 
     public void engadirProduto(Produto obj) {
         elementosCarrito.add(obj);
@@ -12,20 +12,8 @@ public class CarrinhoCompra {
 
     private Double totalProductos=0.0;
 
-    public Double getTotalProductos() {
-        return totalProductos;
-    }
-
     public void setTotalProductos(Double totalProductos) {
         this.totalProductos += totalProductos;
-    }
-
-    public ArrayList<Produto> getElementosCarrito() {
-        return elementosCarrito;
-    }
-
-    public void setElementosCarrito(ArrayList<Produto> elementosCarrito) {
-        this.elementosCarrito = elementosCarrito;
     }
 
     public int getNumeroProdutos(){return elementosCarrito.size();}
