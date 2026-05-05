@@ -1,9 +1,7 @@
 package com.example;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
-
+   
 /**
  * Gestiona una lista de alumnos.
  */
