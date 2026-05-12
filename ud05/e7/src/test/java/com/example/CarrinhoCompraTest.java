@@ -3,7 +3,7 @@ package com.example;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-public class CarrinhoCompraTest {
+class CarrinhoCompraTest {
 
     @Test
     void testEngadirProduto() {
@@ -40,6 +40,16 @@ public class CarrinhoCompraTest {
         c.eliminarProduto(p);
 
         assertEquals(0, c.getNumeroProdutos());
+    }
+
+    @Test
+    void testEliminarProdutoV2() {
+        CarrinhoCompra c = new CarrinhoCompra();
+        Produto p = new Produto("Monitor", 150.0);
+        Produto p2 = new Produto("MonitorLG", 151.0);
+        c.engadirProduto(p);
+        c.eliminarProduto(p2);
+        assertEquals(1, c.getNumeroProdutos());
     }
 
     @Test
