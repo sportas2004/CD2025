@@ -1,6 +1,10 @@
 .idea/
 *.iml
 build/
+target/
 
 .vscode/
 
+.m2/
+.pw-browsers/
+.tools/

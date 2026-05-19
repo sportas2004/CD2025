@@ -11,12 +11,10 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>21</maven.compiler.release>
-    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.release>17</maven.compiler.release>
     <checkstyle.version>10.17.0</checkstyle.version>
     <sonar.projectKey>e7</sonar.projectKey>
     <sonar.host.url>http://localhost:9000</sonar.host.url>
-    <sonar.login>sqp_b2dd3954ada8afea2f1a0fde09f4ecca04ab30b0</sonar.login>
   </properties>
 
   <dependencyManagement>
